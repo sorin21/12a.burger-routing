@@ -21,8 +21,7 @@
   box-shadow: 2px 2px 2px #966909;
 }
 
-.OrderButton:hover,
-.OrderButton:active {
+.OrderButton:hover, .OrderButton:active {
   background-color: #a0db41;
   border: 1px solid #966909;
   color: #966909;
@@ -36,7 +35,7 @@
 }
 
 .OrderButton:not(:disabled) {
-  animation: enable 0.3s linear;
+  animation: enable 0.3s ease-out;
 }
 
 @keyframes enable {
