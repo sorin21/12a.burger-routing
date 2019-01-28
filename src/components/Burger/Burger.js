@@ -34,7 +34,7 @@ const Burger = (props) => {
       return prevValue.concat(curValue)
     }, []);
 
-  console.log('transformedIngredients', transformedIngredients)
+  // console.log('transformedIngredients', transformedIngredients)
   if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding ingredients!</p>;
   }
