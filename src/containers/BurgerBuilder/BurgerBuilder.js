@@ -73,6 +73,10 @@ class BurgerBuilder extends Component {
     this.setState({purchasing: true});
   }
 
+  modalClosed = () => {
+    this.setState({purchasing: false});
+  }
+
   render() {
     const disabledInfo = Object.entries(this.state.ingredients).reduce((result, [key, value]) => {
       result[key] = (value <= 0);
@@ -83,8 +87,12 @@ class BurgerBuilder extends Component {
       <Aux>
         <Modal 
           show={this.state.purchasing}
+          modalClosed={this.modalClosed}
         >
-          <OrderSummary ingredients={this.state.ingredients} />
+          <OrderSummary 
+          ingredients={this.state.ingredients}
+          cancel={this.modalClosed}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
