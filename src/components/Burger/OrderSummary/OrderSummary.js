@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Aux from 'hoc/_Aux';
-// import Button from "components/UI/Button/Button";
+import Button from "components/UI/Button/Button";
 
 class OrderSummary extends Component {
   render() {
@@ -20,9 +20,10 @@ class OrderSummary extends Component {
         <ul>
           {ingredientSummary}
         </ul>
+        <p><strong>Total price: {this.props.price.toFixed(2)}</strong></p>
         <p>Continue to checkout</p>
-        {/* <Button btnType="Danger" colorBlack clicked={this.props.cancel}>CANCEL</Button>
-        <Button btnType="Success" clicked={this.props.continue}>CONTINUE</Button> */}
+        <Button btnType="Danger" colorBlack clicked={this.props.cancel}>CANCEL</Button>
+        <Button btnType="Success" clicked={this.props.continue}>CONTINUE</Button>
       </Aux>
     );
   }
