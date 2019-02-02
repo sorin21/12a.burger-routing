@@ -5,11 +5,22 @@ import Aux from 'hoc/_Aux';
 import classes from './Modal.css';
 
 class Modal extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    // children refers to Spinner and OrderSummary  
+    // return nextProps.show !== this.props.show ||
+    //   nextProps.children !== this.props.children;
+    return nextProps.show !== this.props.show;
+
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('Modal will update')
+  }
   render() {
     return (
       <Aux>
-        <Backdrop show={this.props.show} clicked={this.props.modalClosed}  />
-        <div 
+        <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
+        <div
           className={classes.Modal}
           style={{
             // vh = view port high
