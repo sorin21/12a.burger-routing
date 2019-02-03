@@ -4,15 +4,20 @@ import Aux from 'hoc/_Aux';
 import Button from "components/UI/Button/Button";
 
 class OrderSummary extends Component {
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('OrderSummary updated')
+  // }
+
   render() {
     const ingredientSummary = Object.keys(this.props.ingredients).map(igKey => {
-        return (
-          <li key={igKey}>
-            <span style={{ textTransform: 'capitalize' }}>{igKey}</span>
-            : {this.props.ingredients[igKey]}
-          </li>)
-      })
+      return (
+        <li key={igKey}>
+          <span style={{ textTransform: 'capitalize' }}>{igKey}</span>
+          : {this.props.ingredients[igKey]}
+        </li>)
+    })
     // console.log(ingredients);
+
     return (
       <Aux>
         <h3>Your order</h3>
