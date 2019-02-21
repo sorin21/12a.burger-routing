@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 
 import Button from 'components/UI/Button/Button';
 import Spinner from 'components/UI/Spinner/Spinner';
-import axios from 'axios-order.js'; 
+import Input from 'components/UI/Input/Input'
+import axios from 'axios-order.js';
 
 import classes from './ContactData.css'
 
 class ContactData extends Component {
-  state ={ 
+  state = {
     mane: '',
     email: '',
     address: {
       street: '',
       postalCode: ''
     },
-    loading: false 
+    loading: false
   };
 
   orderHandler = (event) => {
@@ -22,7 +23,7 @@ class ContactData extends Component {
     this.setState({ loading: true });
     const order = {
       ingredients: this.props.ingredients,
-      price: this.props.price  ,
+      price: this.props.price,
       customer: {
         name: 'Sorin',
         address: {
@@ -32,7 +33,7 @@ class ContactData extends Component {
         },
         email: 'test@test.com'
       },
-      deliveryMethod: 'fastest' 
+      deliveryMethod: 'fastest'
     }
     axios.post('/orders.json', order)
       .then(response => {
@@ -48,15 +49,15 @@ class ContactData extends Component {
   render() {
     let form = (
       <form>
-        <input className={classes.Input} type="text" name="name" placeholder="Your name" />
-        <input className={classes.Input} type="text" name="street" placeholder="Your street" />
-        <input className={classes.Input} type="email" name="email" placeholder="Your email" />
-        <input className={classes.Input} type="text" name="postalCode" placeholder="Your postal code " />
+        <Input inputtype="input" type="text" name="street" placeholder="Your street" />
+        <Input inputtype="input" type="text" name="name" placeholder="Your name" />
+        <Input inputtype="input" type="email" name="email" placeholder="Your email" />
+        <Input inputtype="input" type="text" name="postalCode" placeholder="Your postal code " />
         <Button btnType="Success" clicked={this.orderHandler}>Order </Button>
       </form>
     );
     if (this.state.loading) {
-       form = <Spinner />;
+      form = <Spinner />;
     }
     return (
       <div className={classes.ContactData}>
