@@ -45,7 +45,12 @@ export default class Checkout extends Component {
           checkoutCanceled={this.checkoutCanceled}
           checkoutContinued={this.checkoutContinued} />
           {/* pass this.props here to have history in ContactData.js */}
-        <Route path={this.props.match.path + '/contact-data'} render={() => (<ContactData {...this.props} ingredients={this.state.ingredients} price={this.state.totalPrice} /> )} />
+        <Route path={this.props.match.path + '/contact-data'} render={() => (
+          <ContactData 
+            {...this.props} 
+            ingredients={this.state.ingredients} 
+            price={this.state.totalPrice} /> 
+        )} />
       </div>
     )
   }
